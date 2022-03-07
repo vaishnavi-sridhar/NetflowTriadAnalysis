@@ -10,5 +10,7 @@ Assumptions:
 1. Triad file format: triads-<4digitdatemmdd>-<4digittod>-<querywindow>-<wateringhole>
   
   Examples:
+  
   triads-0303-0000-25-nonwh - Triads O/P file for March 3rd , 12:00 AM for a query window of 25 , triad formation direction: A->B->C
+  
   triads-0304-0000-5-wh - Triads O/P file for March 4th , 12:00 AM for a query window of 5 , triad formation direction: A<-B->C(Watering Hole attack)
