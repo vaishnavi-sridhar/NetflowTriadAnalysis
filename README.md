@@ -9,7 +9,7 @@ This project is an add-on to the java based project (https://github.com/vaishnav
 Assumptions:
 1. Triad file format: 
 
-triads- <4digitdatemmdd> - <4digittod> - <querywindow> - <wh/nonwh>
+triads-[4digitdatemmdd]-[4digittod]-[querywindow]-[wh/nonwh]
   
   Examples:
   
