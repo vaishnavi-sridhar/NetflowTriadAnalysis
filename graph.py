@@ -53,3 +53,5 @@ def plot_graph2(inputfile):
 
 plot_graph1("qw_analysis_nonwh")
 #plot_graph2("tod_analysis_nonwh")
+plot_graph1("qw_analysis_wh")
+#plot_graph2("tod_analysis_wh")
