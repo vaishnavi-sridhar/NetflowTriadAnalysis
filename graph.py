@@ -22,7 +22,7 @@ def plot_graph1(inputfile):
         colors = ['b', 'g', 'r', 'y', 'o']
         qw_dict = value
         print(type(qw_dict))
-        plt.plot(qw_dict.keys(), qw_dict.values(), color=colors[index], label="Date:" + key)
+        plt.plot(qw_dict.keys(), qw_dict.values(), color=colors[index], marker='o', label="Date:" + key)
     direction = "Triad direction: A->B->C" if inputfile.split('_')[-1] == "nonwh" else "Triad direction: A<-B->C"
     title = 'Total triads (vs) time allowed for triad formation(' + direction + ')'
     plt.title(title)
@@ -41,7 +41,7 @@ def plot_graph2(inputfile):
         colors = ['b', 'g', 'r', 'y', 'o']
         tod_dict = value
         print(type(tod_dict))
-        plt.plot(tod_dict.keys(), tod_dict.values(), color=colors[index], label="Date:" + key)
+        plt.plot(tod_dict.keys(), tod_dict.values(), color=colors[index], marker='o', label="Date:" + key)
     direction = "Triad direction: A->B->C" if inputfile.split('_')[-1] == "nonwh" else "Triad direction: A<-B->C"
     title = 'Total triads (vs) Time of the day(' + direction + ')'
     plt.title(title)
@@ -52,4 +52,4 @@ def plot_graph2(inputfile):
 
 
 plot_graph1("qw_analysis_nonwh")
-plot_graph2("tod_analysis_nonwh")
+#plot_graph2("tod_analysis_nonwh")

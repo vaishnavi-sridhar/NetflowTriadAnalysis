@@ -14,8 +14,8 @@ def read_content_from_file(name):
         return {}
 
 
-def generate_qw_agg(df, input_file):
-    print("# of Triads vs query window", len(df.index))
+def generate_qw_agg(record_count, input_file):
+    print("# of Triads vs query window", record_count)
     file_name = input_file.split(".")[0]
     datekey = file_name.split("-")[1]
     tod = file_name.split("-")[2]
@@ -33,11 +33,11 @@ def generate_qw_agg(df, input_file):
             inner_dict = content_as_dict[datekey]
             if qw in inner_dict:
                 orig_val = inner_dict[qw]
-            value = orig_val + len(df.index)
+            value = orig_val + record_count
             inner_dict[qw] = value
         content_as_dict[datekey] = inner_dict
     else:
-        inner_dict[qw] = len(df.index)
+        inner_dict[qw] = record_count
         content_as_dict[datekey]= inner_dict
 
     append_to_file(dict1_file_name, content_as_dict)
@@ -50,24 +50,28 @@ def generate_qw_agg(df, input_file):
             inner_dict = content_as_dict[datekey]
             if tod in inner_dict:
                 orig_val = inner_dict[tod]
-            value = orig_val + len(df.index)
+            value = orig_val + record_count
             inner_dict[tod] = value
         content_as_dict[datekey] = inner_dict
     else:
-        inner_dict[tod] = len(df.index)
+        inner_dict[tod] = record_count
         content_as_dict[datekey]= inner_dict
 
     append_to_file(dict2_file_name, content_as_dict)
 
 
 def traid_aggregator(input_file):
-    df = pd.read_csv(input_file, delimiter=",", header=None)
-    pd.set_option('display.max_rows', None)
-    pd.set_option('display.max_columns', None)
-    pd.set_option('display.width', None)
-    pd.set_option('display.max_colwidth', None)
-    print(df)
-    generate_qw_agg(df,input_file)
+    # df = pd.read_csv(input_file, delimiter=",", header=None)
+    with open(input_file, 'r') as fp:
+        for count, line in enumerate(fp):
+            pass
+        records = count + 1
+    # pd.set_option('display.max_rows', None)
+    # pd.set_option('display.max_columns', None)
+    # pd.set_option('display.width', None)
+    # pd.set_option('display.max_colwidth', None)
+    # print(df)
+    generate_qw_agg(records, input_file)
 
 
 def main():
